@@ -12,5 +12,5 @@
 * Медиа запросы
 * JavaScript
 
-Посмотреть: https://maksimbelokon.github.io/russian-travel/index.html
+Посмотреть: https://maksimbelokon.github.io/mesto/index.html
 
