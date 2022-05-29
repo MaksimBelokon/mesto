@@ -1,0 +1,23 @@
+ .profile__title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 45px;
+    margin: 0 18px 14px 0;
+ }
+
+ @media screen and (max-width: 890px) {
+    .profile__title {
+        margin: 26px 0 14px 0;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .profile__title {
+        font-size: 27px;
+        line-height: 33px;
+        text-align: center;
+    }
+    
+}

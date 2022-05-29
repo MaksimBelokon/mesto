@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Место</title>
+</head>
+<body class="page">
+
+  <header class="header">
+    <div class="mesto">
+      <img class="header__logo" src="./images/logo.svg" alt="Лого">
+    </div>
+  </header>
+
+  <main>
+    <section class="profile">
+      <div class="profile__info">
+
+        <img class="profile__avatar" src="./images/image.jpg" alt="Профиль">
+        <div>
+          <div class="profile__text">
+           <h1 class="profile__title">Жак-Ив Кусто</h1>
+           <a class="profile__edit-button" href="#"></a>
+          </div> 
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+      </div>
+      <button class="profile__add-button"><img src="./images/Vector.png" alt="Крест"></button>
+    </section>
+
+    <section class="elements">
+      <div class="element">
+        <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Фото">
+        <div class="element__group">
+          <h2 class="element__text">Карачаевск</h2>
+          <a class="element__like" href="#"></a>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__image" src="./images/uralskie.jpeg" alt="Фото">
+        <div class="element__group">
+          <h2 class="element__text">Уральские горы</h2>
+          <a class="element__like" href="#"></a>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__image" src="./images/gamstul.jpeg" alt="Фото">
+        <div class="element__group">
+          <h2 class="element__text">Гамсутль</h2>
+          <a class="element__like" href="#"></a>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__image" src="./images/karelia.jpeg" alt="Фото">
+        <div class="element__group">
+          <h2 class="element__text">Карелия</h2>
+          <a class="element__like" href="#"></a>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__image" src="./images/zabaikalie.jpeg" alt="Фото">
+        <div class="element__group">
+          <h2 class="element__text">Забайкалье</h2>
+          <a class="element__like" href="#"></a>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__image" src="./images/teriberka.jpeg" alt="Фото">
+        <div class="element__group">
+          <h2 class="element__text">Териберка</h2>
+          <a class="element__like" href="#"></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copyright">&#169; 2022 Mesto Russia</p>
+  </footer>
+
+  <div class="popup popup_hidden">
+    <div class="popup__container">
+      <a class="popup__close-button" href="#"></a>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form id="form">
+      <input class="popup__input popup__input-name" type="text">
+      <input class="popup__input popup__input-job" type="text">
+      <button class="popup__button" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./pages/index.js"></script>
+</body>
+</html>
