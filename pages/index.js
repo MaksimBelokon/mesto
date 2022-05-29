@@ -35,10 +35,3 @@ function formSubmitHandler (evt) {
     popup.classList.add('popup_hidden');
 }
 formElement.addEventListener('submit', formSubmitHandler); 
-
-
-let elementLike = document.querySelector('.element__like');
-function activeLike() {
-    elementLike.classList.add('element__like-active')
-}
-elementLike.addEventListener('click', activeLike);
