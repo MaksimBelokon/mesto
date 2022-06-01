@@ -1,5 +1,6 @@
 .elements {
-    padding: 51px 200px 0;
+    padding: 51px 0 0;
+    max-width: 880px;
     margin: 0 auto;
     display: grid;
     justify-content: center;

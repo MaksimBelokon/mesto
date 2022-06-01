@@ -9,9 +9,7 @@
 <body class="page">
 
   <header class="header">
-    <div class="mesto">
       <img class="header__logo" src="./images/logo.svg" alt="Лого">
-    </div>
   </header>
 
   <main>
@@ -22,7 +20,7 @@
         <div>
           <div class="profile__text">
            <h1 class="profile__title">Жак-Ив Кусто</h1>
-           <a class="profile__edit-button" href="#"></a>
+           <button class="profile__edit-button" href="#"></button>
           </div> 
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
@@ -30,49 +28,51 @@
       <button class="profile__add-button"><img src="./images/Vector.png" alt="Крест"></button>
     </section>
 
-    <section class="elements">
-      <div class="element">
+    <section>
+    <ul class="elements">
+      <li class="element">
         <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Фото">
         <div class="element__group">
           <h2 class="element__text">Карачаевск</h2>
-          <a class="element__like" href="#"></a>
+          <button class="element__like" href="#"></button>
         </div>
-      </div>
-      <div class="element">
+      </li>
+      <li class="element">
         <img class="element__image" src="./images/uralskie.jpeg" alt="Фото">
         <div class="element__group">
           <h2 class="element__text">Уральские горы</h2>
-          <a class="element__like" href="#"></a>
+          <button class="element__like" href="#"></button>
         </div>
-      </div>
-      <div class="element">
+      </li>
+      <li class="element">
         <img class="element__image" src="./images/gamstul.jpeg" alt="Фото">
         <div class="element__group">
           <h2 class="element__text">Гамсутль</h2>
-          <a class="element__like" href="#"></a>
+          <button class="element__like" href="#"></button>
         </div>
-      </div>
-      <div class="element">
+      </li>
+      <li class="element">
         <img class="element__image" src="./images/karelia.jpeg" alt="Фото">
         <div class="element__group">
           <h2 class="element__text">Карелия</h2>
-          <a class="element__like" href="#"></a>
+          <button class="element__like" href="#"></button>
         </div>
-      </div>
-      <div class="element">
+      </li>
+      <li class="element">
         <img class="element__image" src="./images/zabaikalie.jpeg" alt="Фото">
         <div class="element__group">
           <h2 class="element__text">Забайкалье</h2>
-          <a class="element__like" href="#"></a>
+          <button class="element__like" href="#"></button>
         </div>
-      </div>
-      <div class="element">
+      </li>
+      <li class="element">
         <img class="element__image" src="./images/teriberka.jpeg" alt="Фото">
         <div class="element__group">
           <h2 class="element__text">Териберка</h2>
-          <a class="element__like" href="#"></a>
+          <button class="element__like" href="#"></button>
         </div>
-      </div>
+      </li>
+    </ul>
     </section>
   </main>
 
@@ -82,16 +82,16 @@
 
   <div class="popup popup_hidden">
     <div class="popup__container">
-      <a class="popup__close-button" href="#"></a>
+      <button class="popup__close-button" href="#"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form id="form">
-      <input class="popup__input popup__input-name" type="text">
-      <input class="popup__input popup__input-job" type="text">
+      <input class="popup__input popup__input_type_name" type="text" name="name">
+      <input class="popup__input popup__input_type_job" type="text" name="job">
       <button class="popup__button" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
 
-  <script src="./pages/index.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

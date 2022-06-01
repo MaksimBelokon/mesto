@@ -1,15 +1,18 @@
 .element__like {
+    background-color: transparent;
     background-image: url(../../../images/Vector-heart.svg);
     width: 22px;
     height: 19px;
     background-size: cover;
     margin: auto 0;
+    border: 0;
 }
 
 .element__like:hover {
     opacity: 0.5;
 }
 
+/*
 .element__like:focus {
     background-image: url(../../../images/blackHeart.png);
-}
+} */
