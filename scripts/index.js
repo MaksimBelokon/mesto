@@ -18,6 +18,8 @@ const profileEditButton = document.querySelector('.profile__edit-button');
 /* функция открытия попапа по клику на кнопку редактирования */
 function popupShow () {
     popup.classList.remove('popup_hidden');
+    inputSubtitle.value = profileSubtitle.textContent;
+    inputTitle.value = profileTitle.textContent;
 }
 profileEditButton.addEventListener('click', popupShow);
 
