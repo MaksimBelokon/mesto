@@ -1,14 +1,18 @@
 .header {
     max-width: 880px;
-    padding: 45px 0 0;
+    /* убрал верхний паддинг, прописал высоту, вертикально отцентрировал через флекс */
+    min-height: 119px;
+    display: flex;
+    align-items: center;
     margin: 0 auto;
     height: 74px;
     border-bottom: 1px solid rgba(69, 69, 75, 0.7);
 }
 
-
+/*
 @media screen and (max-width: 730px) {
     .header {
         padding: 28px 0 0;
     }
 }
+*/
