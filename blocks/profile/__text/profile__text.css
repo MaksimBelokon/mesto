@@ -1,6 +1,11 @@
 .profile__text {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
+@media screen and (max-width: 890px) {
+    .profile__text {
+        justify-content: center;
+    }
+}

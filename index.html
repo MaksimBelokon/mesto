@@ -29,48 +29,6 @@
 
     <section>
     <ul class="elements">
-      <li class="element">
-        <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Фото">
-        <div class="element__group">
-          <h2 class="element__text">Карачаевск</h2>
-          <button class="element__like"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./images/uralskie.jpeg" alt="Фото">
-        <div class="element__group">
-          <h2 class="element__text">Уральские горы</h2>
-          <button class="element__like"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./images/gamstul.jpeg" alt="Фото">
-        <div class="element__group">
-          <h2 class="element__text">Гамсутль</h2>
-          <button class="element__like"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./images/karelia.jpeg" alt="Фото">
-        <div class="element__group">
-          <h2 class="element__text">Карелия</h2>
-          <button class="element__like"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./images/zabaikalie.jpeg" alt="Фото">
-        <div class="element__group">
-          <h2 class="element__text">Забайкалье</h2>
-          <button class="element__like"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./images/teriberka.jpeg" alt="Фото">
-        <div class="element__group">
-          <h2 class="element__text">Териберка</h2>
-          <button class="element__like"></button>
-        </div>
-      </li>
     </ul>
     </section>
   </main>
@@ -79,11 +37,11 @@
     <p class="footer__copyright">&#169; 2022 Mesto Russia</p>
   </footer>
 
-  <div class="popup popup_hidden">
+  <div class="popup popup-profile popup_hidden">
     <div class="popup__container">
-      <button class="popup__close-button"></button>
+      <button class="popup__close-button popup-profile__close-button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form id="form">
+      <form id="form-profile">
       <input class="popup__input popup__input_type_name" type="text" name="name">
       <input class="popup__input popup__input_type_job" type="text" name="job">
       <button class="popup__button" type="submit">Сохранить</button>
@@ -91,6 +49,37 @@
     </div>
   </div>
 
+  <div class="popup popup-card popup_hidden">
+    <div class="popup__container">
+      <button class="popup__close-button popup-card__close-button"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form id="form-card">
+      <input class="popup__input popup__input_type_place" type="text" name="name" placeholder="Название">
+      <input class="popup__input popup__input_type_url" type="text" name="url" placeholder="Ссылка на картинку">
+      <button class="popup__button" type="submit">Создать</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup-picture popup_hidden">
+    <div class="popup-picture__container">
+     <img class="popup-picture__image" src="" alt="Фото">
+     <p class="popup-picture__text"></p>
+     <button class="popup__close-button popup-picture__close-button"></button>
+    </div>
+  </div>
+
+  <template id="card">
+    <li class="element">
+      <img class="element__image" src="" alt="Фото">
+      <button class="element__delete"></button>
+      <div class="element__group">
+        <h2 class="element__text"></h2>
+        <button class="element__like"></button>
+      </div>
+    </li>
+  </template>
+  <script src="./scripts/array.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
