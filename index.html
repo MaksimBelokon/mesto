@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
   <title>Место</title>
 </head>
+
 <body class="page">
 
   <header class="header">
-      <img class="header__logo" src="./images/logo.svg" alt="Лого">
+    <img class="header__logo" src="./images/logo.svg" alt="Лого">
   </header>
 
   <main>
@@ -18,9 +20,9 @@
         <img class="profile__avatar" src="./images/image.jpg" alt="Профиль">
         <div>
           <div class="profile__text">
-           <h1 class="profile__title">Жак-Ив Кусто</h1>
-           <button class="profile__edit-button"></button>
-          </div> 
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button class="profile__edit-button"></button>
+          </div>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
       </div>
@@ -28,8 +30,8 @@
     </section>
 
     <section>
-    <ul class="elements">
-    </ul>
+      <ul class="elements">
+      </ul>
     </section>
   </main>
 
@@ -42,9 +44,9 @@
       <button class="popup__close-button popup-profile__close-button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form id="form-profile">
-      <input class="popup__input popup__input_type_name" type="text" name="name">
-      <input class="popup__input popup__input_type_job" type="text" name="job">
-      <button class="popup__button" type="submit">Сохранить</button>
+        <input class="popup__input popup__input_type_name" type="text" name="name">
+        <input class="popup__input popup__input_type_job" type="text" name="job">
+        <button class="popup__button" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
@@ -54,24 +56,24 @@
       <button class="popup__close-button popup-card__close-button"></button>
       <h2 class="popup__title">Новое место</h2>
       <form id="form-card">
-      <input class="popup__input popup__input_type_place" type="text" name="name" placeholder="Название">
-      <input class="popup__input popup__input_type_url" type="text" name="url" placeholder="Ссылка на картинку">
-      <button class="popup__button" type="submit">Создать</button>
+        <input class="popup__input popup__input_type_place" type="text" name="name" placeholder="Название">
+        <input class="popup__input popup__input_type_url" type="text" name="url" placeholder="Ссылка на картинку">
+        <button class="popup__button" type="submit">Создать</button>
       </form>
     </div>
   </div>
 
   <div class="popup popup-picture popup_hidden">
     <div class="popup-picture__container">
-     <img class="popup-picture__image" src="" alt="Фото">
-     <p class="popup-picture__text"></p>
-     <button class="popup__close-button popup-picture__close-button"></button>
+      <img class="popup-picture__image" src="#" alt="Фото">
+      <p class="popup-picture__text"></p>
+      <button class="popup__close-button popup-picture__close-button"></button>
     </div>
   </div>
 
   <template id="card">
     <li class="element">
-      <img class="element__image" src="" alt="Фото">
+      <img class="element__image" src="#" alt="Фото">
       <button class="element__delete"></button>
       <div class="element__group">
         <h2 class="element__text"></h2>
