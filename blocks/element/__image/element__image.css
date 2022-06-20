@@ -4,3 +4,9 @@
     border-radius: 10px 10px 0 0;
     object-fit: cover;
 }
+
+.element__image:hover {
+    opacity: 0.6;
+    transition: 1s;
+    cursor: pointer;
+}
