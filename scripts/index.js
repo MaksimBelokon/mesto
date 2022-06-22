@@ -80,13 +80,11 @@ formElementProfile.addEventListener('submit', handleProfileFormSubmit);
 function addPopupPic (item) {
   openPopup(popupPic);
   popupPicImage.src = item.link;
+  popupPicImage.alt = item.name;
   popupPicText.textContent = item.name;
+
 };
 
-//функция вставления карточки в начало
-function addInBegin (card) {
-  listElements.prepend(card);
-}
 //функция добавления лайка
 function addLike (evt) {
   evt.target.classList.toggle('element__like_active');
@@ -95,13 +93,17 @@ function addLike (evt) {
 function deleteCard (evt) {
   evt.target.closest('.element').remove();
 }
+//функция вставления карточки в начало
+function addInBegin (item) {
+  listElements.prepend(item);
+}
 //функция добавления карточек из массива и ее вызов для всех его элементов
 function renderItem (item) {
     const newCard = cardTemplate.cloneNode(true); //клонировал карточку
     newCard.querySelector('.element__text').textContent = item.name; //добавил название места
     const cardImage = newCard.querySelector('.element__image');
     cardImage.src = item.link; //добавил линк картинки
-    cardImage.alt = item.link; //добавил alt
+    cardImage.alt = item.name; //добавил alt
     //добавление лайка по обработчику клика
     newCard.querySelector('.element__like').addEventListener('click', addLike);
     //удаление карточки по обработчику клика
@@ -110,10 +112,12 @@ function renderItem (item) {
     cardImage.addEventListener('click', function () {
       addPopupPic (item);
     });
-    //добавление в начало списка
-    addInBegin (newCard);
+    return(newCard);
 };
-initialCards.forEach(renderItem); //добавил карточки по данным из массива
+//добавил карточки по данным из массива
+initialCards.forEach(function (item) {
+  addInBegin(renderItem(item));
+});
 
 //функция создания карточки, после неё обработчик на сабмит для добавления
 function createItem (evt) {
@@ -123,8 +127,8 @@ function createItem (evt) {
       name: inputPlace.value,
       link: inputUrl.value
     };
-    renderItem (inputsValue);
+    addInBegin(renderItem (inputsValue)); //добавляю в начало
     closePopup(popupCard);
     formElementCard.reset();
 };
-formElementCard.addEventListener('submit', createItem);
+formElementCard.addEventListener('submit', createItem); 
