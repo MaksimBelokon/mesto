@@ -37,6 +37,8 @@ const popupPicCloseButton = document.querySelector('.popup-picture__close-button
 const formElementCard = document.querySelector('#form-card');
 const formElementProfile = document.querySelector('#form-profile');
 
+const popupButton = document.querySelector
+
 // функциии открытия попапов
 function openPopup (popup) {
   popup.classList.add('popup_opened');
@@ -57,15 +59,6 @@ cardAddButton.addEventListener('click', function () {
 function closePopup (popup) {
     popup.classList.remove('popup_opened');
 };
-popupCardCloseButton.addEventListener('click', function (){
-  closePopup(popupCard);
-});
-popupProfileCloseButton.addEventListener('click', function (){
-  closePopup(popupProfile);
-});
-popupPicCloseButton.addEventListener('click', function (){
-  closePopup(popupPic);
-});
 
 // объявил форму профиля, повесил на кнопку сабмита изменение имени и работы, и закрытие попапа при сабмите
 function handleProfileFormSubmit (evt) {
@@ -82,7 +75,6 @@ function addPopupPic (item) {
   popupPicImage.src = item.link;
   popupPicImage.alt = item.name;
   popupPicText.textContent = item.name;
-
 };
 
 //функция добавления лайка
@@ -132,3 +124,27 @@ function createItem (evt) {
     formElementCard.reset();
 };
 formElementCard.addEventListener('submit', createItem); 
+
+//закрытие попапов по лику на оверлей, esс и крестики
+const popups = document.querySelectorAll('.popup')
+popups.forEach( function (popup) {
+  popup.addEventListener('mousedown', function (evt) {
+    if(evt.target.classList.contains('popup_opened')) {
+      closePopup(popup);
+    }
+  });
+});
+popups.forEach( function (popup) {
+  document.addEventListener('keydown', function (evt) {
+    if(evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  });
+});
+popups.forEach( function (popup) {
+  document.addEventListener('click', function (evt) {
+    if(evt.target.classList.contains('popup__close-button')) {
+      closePopup(popup);
+    }
+  });
+});
