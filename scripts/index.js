@@ -56,6 +56,10 @@ cardAddButton.addEventListener('click', function () {
 //функции закрытия всех попапов с обработчиками кликов по ним
 function closePopup (popup) {
     popup.classList.remove('popup_opened');
+    const buttonElement = popup.querySelector(validationObj.submitButtonSelector);
+    if(!(buttonElement.classList.contains('button__disabled'))){
+      buttonElement.setAttribute("disabled",true);
+    };
 };
 
 // объявил форму профиля, повесил на кнопку сабмита изменение имени и работы, и закрытие попапа при сабмите
@@ -123,18 +127,11 @@ function createItem (evt) {
 };
 formElementCard.addEventListener('submit', createItem); 
 
-//закрытие попапов по лику на оверлей, esс и крестики
+//закрытие попапов по лику на оверлей и крестику
 const popups = document.querySelectorAll('.popup')
 popups.forEach( function (popup) {
   popup.addEventListener('mousedown', function (evt) {
     if(evt.target.classList.contains('popup_opened')) {
-      closePopup(popup);
-    }
-  });
-});
-popups.forEach( function (popup) {
-  document.addEventListener('keydown', function (evt) {
-    if(evt.key === 'Escape') {
       closePopup(popup);
     }
   });
@@ -145,4 +142,15 @@ popups.forEach( function (popup) {
       closePopup(popup);
     }
   });
+});
+
+//хакрытие по esc
+document.addEventListener('keydown', function (evt) {
+  if(evt.key === 'Escape') {
+    if(document.querySelector('.popup_opened')) {
+    const activePopup = document.querySelector('.popup_opened')
+    activePopup.classList.remove('popup_opened');
+    console.log('ololo');
+    } 
+  }
 });
