@@ -37,8 +37,6 @@ const popupPicCloseButton = document.querySelector('.popup-picture__close-button
 const formElementCard = document.querySelector('#form-card');
 const formElementProfile = document.querySelector('#form-profile');
 
-const popupButton = document.querySelector
-
 // функциии открытия попапов
 function openPopup (popup) {
   popup.classList.add('popup_opened');
@@ -142,7 +140,7 @@ popups.forEach( function (popup) {
   });
 });
 popups.forEach( function (popup) {
-  document.addEventListener('click', function (evt) {
+  popup.addEventListener('click', function (evt) {
     if(evt.target.classList.contains('popup__close-button')) {
       closePopup(popup);
     }
