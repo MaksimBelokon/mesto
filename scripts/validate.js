@@ -7,15 +7,14 @@ const validationObj = {
   };
 
 //показать сообщение об ошибке, находим класс именн овнутри функции
-function showInputError (formElement, inputElement, errorMessage) {
+function showInputError (formElement, inputElement, errorMessage, validationObj) {
     const inputError = formElement.querySelector(`.${inputElement.id}-error`);
-    console.log(`.${inputElement.id}-error`);
     inputElement.classList.add(validationObj.inputErrorClass);
     inputError.textContent = errorMessage;
     inputError.classList.add(validationObj.errorClass);
   };
 //спрятать сообщение
-function hideInputError (formElement, inputElement) {
+function hideInputError (formElement, inputElement, validationObj) {
     const inputError = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(validationObj.inputErrorClass);
     inputError.classList.remove(validationObj.errorClass);
@@ -25,9 +24,9 @@ function hideInputError (formElement, inputElement) {
 //проверяем валидна ли форма, и включаем или прячем сообщение об ошибке
 function isValid (formElement, inputElement) {
     if (!inputElement.validity.valid) {
-        showInputError(formElement, inputElement, inputElement.validationMessage);
+        showInputError(formElement, inputElement, inputElement.validationMessage, validationObj);
     } else {
-        hideInputError(formElement, inputElement);
+        hideInputError(formElement, inputElement, validationObj);
     }
 };
  //проверяем все поля на валидность
@@ -49,7 +48,7 @@ const toggleButtonState = (inputList, buttonElement) => {
   }; 
 
 //проверка валидности всех инпутов в форме, здесь же смотрим активна ли кнопка
-const setEventListeners = (formElement) => {
+const setEventListeners = (formElement, validationObj) => {
     const inputList = Array.from(formElement.querySelectorAll(validationObj.inputSelector));
     const buttonElement = formElement.querySelector(validationObj.submitButtonSelector);
     toggleButtonState(inputList, buttonElement);
@@ -68,7 +67,7 @@ const enableValidation = (validationObj) => {
       formElement.addEventListener('submit', (evt) => {
         evt.preventDefault();
       });
-      setEventListeners(formElement);
+      setEventListeners(formElement, validationObj);
     });
   };
 enableValidation(validationObj); 
