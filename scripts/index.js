@@ -1,3 +1,6 @@
+import { initialCards, Card } from './card.js';
+import { validationObj, FormValidator } from './FormValidator.js';
+
 /* объявил все попапы */
 const popupProfile = document.querySelector('.popup-profile');
 const popupCard = document.querySelector('.popup-card');
@@ -21,17 +24,9 @@ const inputUrl = document.querySelector('.popup__input_type_url');
 //объявляю список с элементами грида карточек
 const listElements = document.querySelector('.elements');
 
-//объявил темплейт элемент карточки
-const cardTemplate = document.querySelector('#card').content;
-
 // объявил кнопки редактирования, добавления карточки
 const profileEditButton = document.querySelector('.profile__edit-button');
 const cardAddButton = document.querySelector('.profile__add-button');
-
-// объявил кнопки закрытия попапов 
-const popupProfileCloseButton = document.querySelector('.popup-profile__close-button');
-const popupCardCloseButton = document.querySelector('.popup-card__close-button');
-const popupPicCloseButton = document.querySelector('.popup-picture__close-button');
 
 //объявил формы для ввода данных для редактирования профиля и добавления карточки
 const formElementCard = document.querySelector('#form-card');
@@ -86,41 +81,36 @@ function openPopupPic (item) {
   popupPicText.textContent = item.name;
 };
 
-//функция добавления лайка
-function addLike (evt) {
-  evt.target.classList.toggle('element__like_active');
-}
-//функция удаления карточки
-function deleteCard (evt) {
-  evt.target.closest('.element').remove();
-}
-//функция вставления карточки в начало
-function addCardInBegin (item) {
-  listElements.prepend(item);
-}
 //функция добавления карточек из массива и ее вызов для всех его элементов
+// function renderItem (item) {
+//     const newCard = cardTemplate.cloneNode(true); //клонировал карточку
+//     newCard.querySelector('.element__text').textContent = item.name; //добавил название места
+//     const cardImage = newCard.querySelector('.element__image');
+//     cardImage.src = item.link; //добавил линк картинки
+//     cardImage.alt = item.name; //добавил alt
+//     //добавление лайка по обработчику клика
+//     newCard.querySelector('.element__like').addEventListener('click', addLike);
+//     //удаление карточки по обработчику клика
+//     newCard.querySelector('.element__delete').addEventListener('click', deleteCard);
+//     //открытие попапа с увеличенной картинкой по клику
+//     cardImage.addEventListener('click', function () {
+//       openPopupPic (item);
+//     });
+//     return(newCard);
+// };
+// функция добавления карточек с помощью класса, и в начало
 function renderItem (item) {
-    const newCard = cardTemplate.cloneNode(true); //клонировал карточку
-    newCard.querySelector('.element__text').textContent = item.name; //добавил название места
-    const cardImage = newCard.querySelector('.element__image');
-    cardImage.src = item.link; //добавил линк картинки
-    cardImage.alt = item.name; //добавил alt
-    //добавление лайка по обработчику клика
-    newCard.querySelector('.element__like').addEventListener('click', addLike);
-    //удаление карточки по обработчику клика
-    newCard.querySelector('.element__delete').addEventListener('click', deleteCard);
-    //открытие попапа с увеличенной картинкой по клику
-    cardImage.addEventListener('click', function () {
-      openPopupPic (item);
-    });
-    return(newCard);
+const card = new Card(item, '#card', openPopupPic);
+  const cardElement = card.generateCard();
+  listElements.prepend(cardElement);
 };
+
 //добавил карточки по данным из массива
-initialCards.forEach(function (item) {
-  addCardInBegin(renderItem(item));
+initialCards.forEach((item) => {
+  renderItem (item);
 });
 
-//функция создания карточки, после неё обработчик на сабмит для добавления
+//функция создания новой карточки, после неё обработчик на сабмит для добавления
 function createCard (evt) {
     evt.preventDefault();
     //объеденил данные названия места и ссылки, чтобы повторно использовать функцию renderItem
@@ -128,7 +118,7 @@ function createCard (evt) {
       name: inputPlace.value,
       link: inputUrl.value
     };
-    addCardInBegin(renderItem (inputsValue)); //добавляю в начало
+    renderItem (inputsValue); //обработка из класса
     checkButtonActivity(popupCard);
     closePopup(popupCard);
     formElementCard.reset();
@@ -159,3 +149,10 @@ function closeByEsc(evt) {
     closePopup(openedPopup); 
   }
 }
+
+// Валидация форм
+const formCard = new FormValidator(validationObj, formElementCard);
+formCard.enableValidation();
+
+const formProfile = new FormValidator(validationObj, formElementProfile);
+formProfile.enableValidation();
