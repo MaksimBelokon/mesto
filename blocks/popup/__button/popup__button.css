@@ -23,6 +23,7 @@
     color: #000;
     opacity: 0.2;
     background-color: #fff;
+    cursor: default;
 }
 
 @media screen and (max-width: 570px) {

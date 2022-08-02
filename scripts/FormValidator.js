@@ -1,11 +1,3 @@
-export const validationObj = {
-    formSelector: '.form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inputErrorClass: 'popup__input-red',
-    errorClass: 'popup__input-error_active'
-  };
-
 export class FormValidator {
     constructor(validationObj, formElement){
         this._validationObj = validationObj;
@@ -63,6 +55,7 @@ export class FormValidator {
             });
           });
     };
+    //публичный метод enableValidation, который включает валидацию формы.
     enableValidation() {
         this._setEventListeners();
     }
